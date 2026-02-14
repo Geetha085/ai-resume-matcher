@@ -64,6 +64,7 @@ resume-matcher/
 │
 ├── backend/
 │   ├── app.py
+│   ├── config.py
 │   ├── models.py
 │   ├── extensions.py
 │   ├── routes/
@@ -72,6 +73,7 @@ resume-matcher/
 │   │     └── matcher.py
 │   ├── services/
 │   │     └── nlp_engine.py
+│   │     └── resume_generator.py
 │   └── requirements.txt
 │
 ├── frontend/
