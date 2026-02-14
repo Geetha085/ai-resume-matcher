@@ -7,7 +7,7 @@ import bcrypt
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
-# 🔐 Register
+# Register
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -35,7 +35,7 @@ def register():
     return jsonify({"message": "User registered successfully"}), 201
 
 
-# 🔑 Login
+# Login
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -51,11 +51,12 @@ def login():
     if not bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
         return jsonify({"message": "Invalid email or password"}), 401
 
-    # 🔥 IMPORTANT FIX
+  
     access_token = create_access_token(identity=str(user.id))
 
     return jsonify({
         "message": "Login successful",
         "access_token": access_token
     }), 200
+
 
